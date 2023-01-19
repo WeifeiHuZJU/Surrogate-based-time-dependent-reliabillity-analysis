@@ -1,0 +1,15 @@
+clear all;
+clc;
+d=rand(124750,30);
+theta=ones(1,30);
+m=124750;
+t1=clock;
+% Gd=gpuArray(d);
+% Gtheta=gpuArray(theta);
+% Gm=gpuArray(m);
+td = d.^2 .* repmat(-theta(:).',m,1);
+t2=clock;
+r = exp(sum(td, 2));
+t3=clock;
+t1=etime(t2,t1);
+t2=etime(t3,t2);
